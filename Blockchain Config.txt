@@ -1,0 +1,38 @@
+Node 1
+{b0a7562589cff3109e6edf4b3fce0dd00e10af9d}
+PW node1
+Node 2
+{b54f8eacc0688aa0bd2cf9ecf7f433853ae6ba3f}
+PW node2
+
+Node 3
+{26c0a5d44c9b507a983c378e89109f743b028ad2}
+PW node3
+
+
+./bootnode -nodekey boot.key -verbosity 9 -addr :30310
+INFO [02-07|22:44:09] UDP listener up                          self=enode://3ec4fef2d726c2c01f16f0a0030f15dd5a81e274067af2b2157cafbf76aa79fa9c0be52c6664e80cc5b08162ede53279bd70ee10d024fe86613b0b09e1106c40@[::]:30310
+
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDG/rmFqSzzKfXrTSDM7Bnexlhf409Pjkj6NukhIDUpg/0MXISYGmWrrNfc03D3pCQnQxGkWLdJOTQzdJOTQzXJ3beUbP4c1qedLim9KT4/ulr28Pw4KQlJ8Dia58iTjEz1x8NvT2ET/4pijQniUyWI7Y3jiIBaBtkfCdliusPmYyzZ+eD7ovGaLOUIscocl6Mcocl6Mv7ZlWpedW5sggF1849Gb6NBp7Tc2lYwptU5gewDbO/WC4E08574xsIitnmex/zHVb5j08lTJvWOQkbgkVD0Nmbgio4eBGHSA2JyW/MRzILpg8zILpg8O8FUFZ8RKkTvMK510uK1YggDlTc3loo3DxmSx8JkdGe6cuwu6B0JfjrK7bUOWOpmajoRbwdZ6fQue0hp5kB/WeHso2W4SrD+w5jLsixtpLfhhtpLfhhQSw3p1VRPBCovZUr72Kua/29M88PfoIc53ewSjbUsLItKxNucT0AmM9tS/+wtf8Kt+BKyQ2m6xmGlrt28YdFEEXwdXWvRamN6UTdaQ91iqXwJ1iqXwJIyaBeY15y2y0Vl+BqRdpB10ihVWTpX+eib3R9R/jH1e2UuKORpTJrCo3+CqOYFyxYKphcgPAeuzI0yyWs522+vR2syRJRXRdYImvshgmEczLGmEczLGdUdyQLauFoPfq8B+tkACQXS42IsQ5btJSyI/IjwxziJNnlbYLYwQC5SYpa1Kw== t.todd@web.de
+
+qA6YmrdYHvkKq42
+
+
+geth --datadir node1/ --syncmode 'full' --port 30311 --rpc --rpcaddr 'localhost' --rpcport 8501 --rpcapi 'personal,db,eth,net,web3,txpool,miner' --networkid 2019 --gasprice '1' -unlock '0xb0a7562589cff3109e6edf4b3fce0dd00e10af9d' --password node1/password.txt --mine
+
+geth --datadir node2/ --syncmode 'full' --port 30312 --rpc --rpcaddr 'localhost' --rpcport 8502 --rpcapi 'personal,db,eth,net,web3,txpool,miner' --networkid 2019 --gasprice '1' -unlock '0xb54f8eacc0688aa0bd2cf9ecf7f433853ae6ba3f' --password node2/password.txt --mine
+
+geth --datadir node3/ --syncmode 'full' --port 30311 --rpc --rpcaddr 'localhost' --rpcport 8503 --rpcapi 'personal,db,eth,net,web3,txpool,miner' --networkid 2019 --gasprice '1' -unlock '0x26c0a5d44c9b507a983c378e89109f743b028ad2' --password node3/password.txt --mine
+
+static-nodes.json-File:
+
+[
+"enode://1a1d733733d66fe8b87d575a2ed5f4f0f65537e31366e00d4bc8a4751387f08cc7b426777f34708a182ba9dfc84cb70d4cc74023fa5023fa5fcdbaf0d8597a4b813139@132.187.102.139:30311",
+
+"enode://fe754f70f58a16896a6f1434e76385a6429f5969a978a1e2a663f23b77d6c261179fef2fe72a0dc0affd7f9381dfca80641fa8b13908b1390eddd68f2be6fd27beb6f4@132.187.102.139:30312",
+
+"enode://d53d288956d4e73b806de059fec5928d3473e14cb9e1ffe1f839855acb95327cfe35f1f8afbd83831bd2a9ccf952a7ea9436ba8721db5d40ca225c1f0fca9acb@132.187.102.138:30311",
+
+]
+
