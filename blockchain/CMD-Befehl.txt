@@ -1,0 +1,1 @@
+geth --verbosity 2 --mine --password ./blockchain/password.txt --unlock "0xa3295140c2e10a519f5cfc03d7272b97e18cdac7" --datadir ./blockchain/data1 --ipcdisable --port 30300 --rpc --rpcaddr 132.187.102.139 --rpcport 8545 --rpccorsdomain "*" --rpcapi "db,eth,net,web3,personal" --networkid 2019  console
