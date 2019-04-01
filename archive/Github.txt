@@ -1,0 +1,29 @@
+Einrichtung auf jedem PI:
+
+Step 1 (über SSH Verbindung):
+
+eval 'ssh-agent -s'
+exec ssh-agent bash
+ssh-keygen -t rsa -b 4096 -C "t.todd@web.de"
+
+
+Step 2 (am Pi selbst):
+
+alias pbcopy="xclip -sel clip"
+pbcopy < ~/.ssh/id_rsa.pub
+
+Danach auf github.com und unter Settings "SSH and GPG keys" neuen SSH Key eingeben und speichern
+
+
+Step 3 (Einrichtung des Verzeichnisses auf dem PI):
+
+Erst Klonen in beliebigem Ordner:
+git clone git@github.com:Alazka2k/devnet2.git
+
+Dann Dateien in diesen Ordner kopieren
+
+Danach folgendes:
+git add .
+git commit -m .
+git push -u origin master
+
